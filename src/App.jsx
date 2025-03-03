@@ -1,7 +1,7 @@
 import './App.css'
 import { useState } from 'react'; //1- importamos `useState` desde React.
 
-
+/*
 function App() {
  //2.definimos varibles estado name y newname
 const [name, setName]= useState("Sofía");// Nombre actual del profesor
@@ -23,4 +23,38 @@ return (
     )
 }
 
-export default App
+*/
+
+//BONUS//
+//1. Implementa una función `changeName` que se encargue de actualizar el nombre del profesor:
+function App() {
+        const [name, setName] = useState("");
+        const [newName, setNewName] = useState("");
+    function changeName (evento){  
+
+        evento.preventDefault(); // evita que al enviar formulario se recargue navegador
+
+//2. Verifica que `newName` no esté vacío antes de actualizar el nombre.
+        if (newName !== "") {
+            setName(newName); // Actualiza el nombre del profe
+            setNewName(""); // Restablece newName a  una cadena vacía
+        }
+    }
+        return (
+            <div>
+                <h1>Teacher Name: {name}</h1>
+                <form onSubmit={changeName}> 
+                    <input type="text" value={newName} onChange={(evento) => setNewName(evento.target.value)} placeholder="add a name"/>
+                    <button type="submit">Add</button>
+                </form>
+            </div>
+        );
+    };   
+        export default App;
+
+
+
+
+//onSubmit: evento que se dispara cuando un formulario es enviado
+//onChange: evento que se dispara cuando el valor de un elemento de formulario cambia. 
+//El (evento) es el argumento de la función, que representa el evento que se ha producido. 
