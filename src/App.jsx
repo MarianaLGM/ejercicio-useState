@@ -5,7 +5,6 @@ import { useState } from 'react'; //1- importamos `useState` desde React.
 function App() {
  //2.definimos varibles estado name y newname
 const [name, setName]= useState("Sofía");// Nombre actual del profesor
-const [newName, setNewName]= useState("");// Nuevo nombre profe ingresado por el usuario
 
 return (
     //3. renderiza un título `<h2>` con el texto "Teacher Name" seguido del valor de `name`.
@@ -22,8 +21,8 @@ return (
     </div> 
     )
 }
-
 */
+
 
 //BONUS//
 //1. Implementa una función `changeName` que se encargue de actualizar el nombre del profesor:
@@ -37,14 +36,18 @@ function App() {
 //2. Verifica que `newName` no esté vacío antes de actualizar el nombre.
         if (newName !== "") {
             setName(newName); // Actualiza el nombre del profe
-            setNewName(""); // Restablece newName a  una cadena vacía
+            setNewName(""); // limpiar el imput
         }
     }
         return (
             <div>
                 <h1>Teacher Name: {name}</h1>
                 <form onSubmit={changeName}> 
-                    <input type="text" value={newName} onChange={(evento) => setNewName(evento.target.value)} placeholder="add a name"/>
+                    <input 
+                    type="text" 
+                    value={newName} 
+                    onChange={(evento) => setNewName(evento.target.value)} 
+                    placeholder="add a name"/>
                     <button type="submit">Add</button>
                 </form>
             </div>
@@ -58,3 +61,11 @@ function App() {
 //onSubmit: evento que se dispara cuando un formulario es enviado
 //onChange: evento que se dispara cuando el valor de un elemento de formulario cambia. 
 //El (evento) es el argumento de la función, que representa el evento que se ha producido. 
+
+
+
+//vite nos ayuda a desarrollar proyectos web de manera mas fácil
+/*crear un ejercicio de REACT de cero:
+    Instalamos REACT npm create vite@latest y nombre del proyecto
+    Entramos en nuestra carpeta y hacemos npm i
+    */
